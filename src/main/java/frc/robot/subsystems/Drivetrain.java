@@ -18,6 +18,6 @@ public class Drivetrain extends SubsystemBase {
     }
     public void stop() {
         left.stopMotor();
-        right.stopMoTor();
+        right.stopMotor();
     }
 }
