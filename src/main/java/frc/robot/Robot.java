@@ -36,11 +36,15 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    SpeedControllerGroup leftController = new SpeedControllerGroup(new WPI_TalonSRX(RobotMap.CAN.LEFT_TALON_1), new WPI_VictorSPX(RobotMap.CAN.LEFT_VICTOR_2));
-    SpeedControllerGroup rightController = new SpeedControllerGroup(new WPI_TalonSRX(RobotMap.CAN.RIGHT_TALON_3), new WPI_VictorSPX(RobotMap.CAN.RIGHT_VICTOR_4));
+    SpeedControllerGroup leftController = new SpeedControllerGroup(new WPI_VictorSPX(RobotMap.CAN.LEFT_TALON_1),
+            new WPI_VictorSPX(RobotMap.CAN.LEFT_VICTOR_2));
+    SpeedControllerGroup rightController = new SpeedControllerGroup(new WPI_VictorSPX (RobotMap.CAN.RIGHT_TALON_3),
+            new WPI_VictorSPX(RobotMap.CAN.RIGHT_VICTOR_4));
 
     drivetrain = new Drivetrain(leftController, rightController);
     gripper = new Gripper(new WPI_VictorSPX(RobotMap.CAN.GRIPPER_LEFT_5), new WPI_VictorSPX(RobotMap.CAN.GRIPPER_RIGHT_6), new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_1));
+    elevator = new Elevator(new WPI_VictorSPX(RobotMap.CAN.ELEVATOR_1), new WPI_VictorSPX(RobotMap.CAN.ELEVATOR_2),
+            new WPI_TalonSRX(RobotMap.CAN.ELEVATOR_3), new DigitalInput(RobotMap.DIO.ELEVATOR_BOTTOM), new DigitalInput(RobotMap.DIO.ELEVATOR_UP));
 
     OI oi = new OI();
     drivetrain.setDefaultCommand(new DrivetrainMove(oi::getLeftJoystickY, oi::getLeftJoystickY, drivetrain));

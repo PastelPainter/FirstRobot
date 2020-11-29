@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
 
+import java.util.function.Supplier;
+
 public class Elevator extends SubsystemBase {
 
     private Elevator elevator;
@@ -22,10 +24,14 @@ public class Elevator extends SubsystemBase {
     private WPI_VictorSPX victorSPX1;
     private WPI_VictorSPX victorSPX2;
 
-    public Elevator(WPI_VictorSPX victorSPX1, WPI_VictorSPX victorSPX2, WPI_TalonSRX talonSRX) {
+    public static final Supplier<Double> IN_SPEED = () -> 0.5;
+
+    public Elevator(WPI_VictorSPX victorSPX1, WPI_VictorSPX victorSPX2, WPI_TalonSRX talonSRX, DigitalInput limitSwitchUp, DigitalInput limitSwitchBottom) {
         this.victorSPX1 = victorSPX1;
         this.victorSPX2 = victorSPX2;
         this.talonSRX = talonSRX;
+        this.limitSwitchBottom = limitSwitchBottom;
+        this.limitSwitchUp = limitSwitchUp;
     }
     public void elevate(double motorSpeed) {
         if (motorSpeed >= 0 && Robot.elevator.getBallsAmount() < Elevator.MAXIMUM_BALLS_AMOUNT) {

@@ -19,11 +19,13 @@ import frc.robot.subsystems.Gripper;
  * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
  * (including subsystems, commands, and button mappings) should be declared here.
  */
+
 public class OI {
     private Joystick leftJoystick = new Joystick(0);
     private Joystick rightJoystick = new Joystick(1);
     private JoystickButton gripperIn = new JoystickButton(leftJoystick, 0);
     private JoystickButton gripperOut = new JoystickButton(leftJoystick, 1);
+    private JoystickButton elevate = new JoystickButton(rightJoystick, 1);
 
     public double getLeftJoystickX() {
         return leftJoystick.getX();
