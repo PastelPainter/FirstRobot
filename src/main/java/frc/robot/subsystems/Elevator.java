@@ -33,6 +33,7 @@ public class Elevator extends SubsystemBase {
         this.limitSwitchBottom = limitSwitchBottom;
         this.limitSwitchUp = limitSwitchUp;
     }
+
     public void elevate(double motorSpeed) {
         if (motorSpeed >= 0 && Robot.elevator.getBallsAmount() < Elevator.MAXIMUM_BALLS_AMOUNT) {
             talonSRX.set(motorSpeed);
@@ -40,6 +41,7 @@ public class Elevator extends SubsystemBase {
             victorSPX2.set(motorSpeed);
         }
     }
+
     public void stop() {
         talonSRX.stopMotor();
         victorSPX1.stopMotor();

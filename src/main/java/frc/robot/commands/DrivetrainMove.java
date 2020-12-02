@@ -5,13 +5,13 @@ import frc.robot.subsystems.Drivetrain;
 
 import java.util.function.Supplier;
 
-public class DrivetrainMove  extends CommandBase {
+public class DrivetrainMove extends CommandBase {
 
     private Supplier<Double> leftSpeed;
     private Supplier<Double> rightSpeed;
     private Drivetrain drivetrain;
 
-    public DrivetrainMove (Supplier<Double> leftSpeed, Supplier<Double> rightSpeed, Drivetrain drivetrain) {
+    public DrivetrainMove(Supplier<Double> leftSpeed, Supplier<Double> rightSpeed, Drivetrain drivetrain) {
         this.leftSpeed = leftSpeed;
         this.rightSpeed = rightSpeed;
         this.drivetrain = drivetrain;

@@ -8,6 +8,7 @@ public class RobotMap {
         int ELEVATOR_UP = 3;
 
     }
+
     public interface CAN {
         int LEFT_TALON_1 = 1;
         int LEFT_VICTOR_2 = 2;

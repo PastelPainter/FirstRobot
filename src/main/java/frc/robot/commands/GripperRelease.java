@@ -13,14 +13,17 @@ public class GripperRelease extends CommandBase {
         this.gripper = gripper;
         addRequirements(gripper);
     }
+
     @Override
     public void execute() {
         gripper.moveMotor(-motorSpeed);
     }
+
     @Override
     public void end(boolean interrupted) {
         gripper.stop();
     }
+
     @Override
     public boolean isFinished() {
         return gripper.getLimitSwitch();

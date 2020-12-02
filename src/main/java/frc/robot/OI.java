@@ -30,12 +30,15 @@ public class OI {
     public double getLeftJoystickX() {
         return leftJoystick.getX();
     }
+
     public double getLeftJoystickY() {
         return -leftJoystick.getY();
     }
+
     public double getRightJoystickX() {
         return rightJoystick.getX();
     }
+
     public double getRightJoystickY() {
         return -rightJoystick.getY();
     }

@@ -12,10 +12,12 @@ public class Drivetrain extends SubsystemBase {
         this.right = right;
         this.left.setInverted(true);
     }
-    public void moveTank (double leftSpeed, double rightSpeed) {
+
+    public void moveTank(double leftSpeed, double rightSpeed) {
         left.set(leftSpeed);
         right.set(rightSpeed);
     }
+
     public void stop() {
         left.stopMotor();
         right.stopMotor();
